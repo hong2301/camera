@@ -29,8 +29,8 @@ app.use((req, res, next) => {
 // 路由
 const testRouter = require('./router/test')
 app.use('/api', testRouter)
-// const electricalMachineryRouter = require('./router/electrical_machinery')
-// app.use('/electrical_machinery', electricalMachineryRouter)
+const electricalMachineryRouter = require('./router/electrical_machinery')
+app.use('/electrical_machinery', electricalMachineryRouter)
 
 // 错误处理中间件
 app.use((err, req, res, next) => {
