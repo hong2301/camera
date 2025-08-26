@@ -9,10 +9,10 @@
   "engines": {
     "node": ">=18.12.0 <19.0.0"
   },
-"scripts": {
-  "dev": "cross-env ENV=development node -r dotenv/config src/app.js dotenv_config_path=.env.development",
-  "start": "cross-env ENV=production node -r dotenv/config src/app.js dotenv_config_path=.env.production"
-},
+  "scripts": {
+    "dev": "cross-env ENV=development node -r dotenv/config src/app.js dotenv_config_path=.env.development",
+    "start": "cross-env ENV=production node -r dotenv/config src/app.js dotenv_config_path=.env.production"
+  },
   "dependencies": {
     "@escook/express-joi": "^1.1.1",
     "bcryptjs": "^2.4.3",
@@ -23,7 +23,8 @@
     "express-jwt": "^5.3.3",
     "joi": "^17.13.3",
     "jsonwebtoken": "^8.5.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "serialport": "^13.0.0"
   },
   "devDependencies": {
     "cross-env": "^10.0.0"
