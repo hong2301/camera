@@ -9,7 +9,7 @@ declare global {
         echo: (str: string) => promises<string>
       }
       electrical_machinery: {
-        test: (str: string) => promises<string>
+        test: (data:{dir:number,degree:number}) => promises<string>
       }
     }
   }

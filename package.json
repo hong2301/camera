@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.0",
-    "@electron-toolkit/utils": "^3.0.0"
+    "@electron-toolkit/utils": "^3.0.0",
+    "serialport": "^13.0.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^1.0.2",
@@ -47,7 +48,6 @@
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.4.1",
     "prettier": "^3.2.4",
-    "serialport": "^13.0.0",
     "typescript": "^5.9.2",
     "vite": "^5.0.12",
     "vue": "^3.4.15",

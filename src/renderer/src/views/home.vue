@@ -1,9 +1,9 @@
 <script setup lang="ts">
 let btn = 1
-const rotateFn = (data: { dir: number; degree: number }) => {
+const rotateFn =async (data: { dir: number; degree: number }) => {
   if (btn) {
     btn = 0
-    // rotate(data)
+    await window.api.electrical_machinery.test(data)
     setTimeout(() => {
       btn = 1
     }, 0)

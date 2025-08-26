@@ -10,6 +10,7 @@ class MotorController {
       dataBits?: 8 | 5 | 6 | 7 | undefined
       stopBits?: 1 | 1.5 | 2 | undefined
       parity?: 'none' | 'even' | 'odd' | 'mark' | 'space'
+      autoOpen?: boolean
     } = {}
   ) {
     this.port = new SerialPort({
@@ -17,7 +18,8 @@ class MotorController {
       baudRate: options.baudRate || 9600,
       dataBits: options.dataBits || 8,
       stopBits: options.stopBits || 1,
-      parity: options.parity || 'none'
+      parity: options.parity || 'none',
+      autoOpen:false
     })
 
     this.port.on('error', (err) => {
@@ -27,8 +29,21 @@ class MotorController {
     this.port.on('open', () => {
       console.log(`串口 ${portName} 已打开`)
     })
-  } // 发送命令到串口
+  } 
 
+  // 新增打开串口的方法
+  open(callback?: () => void) {
+    this.port.open((err) => {
+      if (err) {
+        console.error('打开串口失败:', err.message)
+        return
+      }
+      console.log(`串口 ${this.port.path} 已打开`)
+      if (callback) callback()
+    })
+  }
+
+  // 发送命令到串口
   sendCommand(command) {
     return new Promise<void>((resolve, reject) => {
       if (!this.port.isOpen) {
@@ -149,4 +164,4 @@ class MotorController {
 }
 
 // 导出模块
-module.exports = MotorController
+export default MotorController;
